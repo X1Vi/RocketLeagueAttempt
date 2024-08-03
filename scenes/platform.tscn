@@ -6,7 +6,7 @@
 margin = 4.04
 size = Vector3(50, 2, 4)
 
-[node name="Node3D" type="Node3D"]
+[node name="platform" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
