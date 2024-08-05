@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3amojabfu17r"]
+
+[ext_resource type="PackedScene" uid="uid://but8gvfk2w361" path="res://scenes/player.tscn" id="1_mtafh"]
+[ext_resource type="PackedScene" uid="uid://cnwk1b0a15wb7" path="res://scenes/dummyObstacle.tscn" id="2_yfrpw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1b76q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_soo1q"]
+margin = 4.04
+size = Vector3(67.7597, 2, 4)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(381.36, 0, 0, 0, 1, 0, 0, 0, 348.841, 0.120484, 0, 0)
+mesh = SubResource("BoxMesh_1b76q")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(5.55273, 0, 0, 0, 1.24751, 0, 0, 0, 87.1299, 5.41099, 0, 0)
+shape = SubResource("BoxShape3D_soo1q")
+
+[node name="Player" parent="." instance=ExtResource("1_mtafh")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 39.0487, 0)
+light_color = Color(0.668823, 0.822574, 0.237167, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 1.82
+omni_range = 300.0
+omni_attenuation = 0.406126
+
+[node name="StaticBody3D2" parent="." instance=ExtResource("2_yfrpw")]
+transform = Transform3D(6.19585, 0, 0, 0, 4.36947, 0, 0, 0, 2.52397, 0, 4.99065, 36.9478)
+
+[node name="StaticBody3D3" parent="." instance=ExtResource("2_yfrpw")]
+transform = Transform3D(6.19585, 0, 0, 0, 4.36947, 0, 0, 0, 2.52397, 0, 4.99065, -99.2679)
+
+[node name="StaticBody3D4" parent="." instance=ExtResource("2_yfrpw")]
+transform = Transform3D(6.19585, 0, 0, 0, 4.36947, 0, 0, 0, 2.52397, -72.5457, 4.99065, -62.954)
+
+[node name="StaticBody3D5" parent="." instance=ExtResource("2_yfrpw")]
+transform = Transform3D(6.19585, 0, 0, 0, 4.36947, 0, 0, 0, 2.52397, 88.8935, 4.99065, -15.6261)

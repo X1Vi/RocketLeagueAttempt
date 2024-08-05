@@ -1,20 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://but8gvfk2w361"]
+[gd_scene load_steps=6 format=3 uid="uid://but8gvfk2w361"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_1pmgw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_escrf"]
+albedo_color = Color(0.327405, 0.000898697, 0.808515, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_kus4i"]
+material = SubResource("StandardMaterial3D_escrf")
 
 [sub_resource type="Skin" id="Skin_kn8an"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_npvap"]
 
-[node name="Player" type="Node3D"]
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.123104)
+script = ExtResource("1_1pmgw")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(1.39568, 0, 0, 0, 1.15979, 0, 0, 0, 1.39568, 2.08165e-12, 1, 2.08165e-12)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.26148e-07, 0, 2.04615, 0, 1.15979, 0, -2.88594, 0, -8.94401e-08, 2.08165e-12, 1, 2.08165e-12)
 mesh = SubResource("BoxMesh_kus4i")
 skin = SubResource("Skin_kn8an")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1.52533, 0, 0, 0, 1.52533, 0, 0, 0, 1.52533, 2.08165e-12, 1, 2.08165e-12)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1.235e-07, 0, 2.1458, 0, 1.14456, 0, -2.82534, 0, -9.37958e-08, 0.0367115, 1, 2.08165e-12)
 shape = SubResource("BoxShape3D_npvap")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.962611, 0.270886, 0, -0.270886, 0.962611, 0, 2.99364, 2.94296)
+fov = 88.7
+near = 0.1
+far = 3999.1
