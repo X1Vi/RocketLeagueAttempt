@@ -22,7 +22,12 @@ skeleton = NodePath("../..")
 transform = Transform3D(5.55273, 0, 0, 0, 1.24751, 0, 0, 0, 87.1299, 5.41099, 0, 0)
 shape = SubResource("BoxShape3D_soo1q")
 
-[node name="Player" parent="." instance=ExtResource("1_mtafh")]
+[node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_mtafh")]
+acceleration = 6.0
+brake_deceleration = 120.0
+friction_deceleration = 120.0
+reverse_friction_deceleration = 120.0
+camera = NodePath("Camera3D")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 39.0487, 0)
@@ -44,3 +49,5 @@ transform = Transform3D(6.19585, 0, 0, 0, 4.36947, 0, 0, 0, 2.52397, -72.5457, 4
 
 [node name="StaticBody3D5" parent="." instance=ExtResource("2_yfrpw")]
 transform = Transform3D(6.19585, 0, 0, 0, 4.36947, 0, 0, 0, 2.52397, 88.8935, 4.99065, -15.6261)
+
+[editable path="Player"]
