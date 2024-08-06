@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3amojabfu17r"]
+[gd_scene load_steps=6 format=3 uid="uid://b3amojabfu17r"]
 
 [ext_resource type="PackedScene" uid="uid://but8gvfk2w361" path="res://scenes/player.tscn" id="1_mtafh"]
 [ext_resource type="PackedScene" uid="uid://cnwk1b0a15wb7" path="res://scenes/dummyObstacle.tscn" id="2_yfrpw"]
+[ext_resource type="PackedScene" uid="uid://bdystciv361yb" path="res://scenes/sky_shader.tscn" id="3_ffuuw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1b76q"]
 
@@ -35,7 +36,7 @@ light_color = Color(0.668823, 0.822574, 0.237167, 1)
 light_energy = 16.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 1.82
-omni_range = 300.0
+omni_range = 1292.5
 omni_attenuation = 0.406126
 
 [node name="StaticBody3D2" parent="." instance=ExtResource("2_yfrpw")]
@@ -49,5 +50,8 @@ transform = Transform3D(6.19585, 0, 0, 0, 4.36947, 0, 0, 0, 2.52397, -72.5457, 4
 
 [node name="StaticBody3D5" parent="." instance=ExtResource("2_yfrpw")]
 transform = Transform3D(6.19585, 0, 0, 0, 4.36947, 0, 0, 0, 2.52397, 88.8935, 4.99065, -15.6261)
+
+[node name="SkyShader" parent="." instance=ExtResource("3_ffuuw")]
+transform = Transform3D(371.714, 0, 0, 0, 16.006, 0, 0, 0, 319.455, 0, 186, 0)
 
 [editable path="Player"]

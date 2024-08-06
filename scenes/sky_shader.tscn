@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdystciv361yb"]
+
+[ext_resource type="Shader" path="res://shaders/sky.gdshader" id="1_5k1ej"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_70rj0"]
+render_priority = 0
+shader = ExtResource("1_5k1ej")
+shader_parameter/cloud_color = Color(1, 1, 1, 1)
+shader_parameter/sky_color = Color(0.5, 0.7, 1, 1)
+shader_parameter/cloud_scale = 0.1
+shader_parameter/cloud_density = 0.5
+shader_parameter/time_scale = 1.0
+shader_parameter/edge_softness = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_xllq7"]
+material = SubResource("ShaderMaterial_70rj0")
+radius = 104.297
+height = 11.825
+
+[node name="SkyShader" type="MeshInstance3D"]
+transform = Transform3D(371.714, 0, 0, 0, 16.006, 0, 0, 0, 319.455, 0, 0, 0)
+mesh = SubResource("SphereMesh_xllq7")
