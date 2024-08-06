@@ -6,6 +6,7 @@ uniform float cloud_scale : hint_range(0.1, 10.0) = 1.0;
 uniform float cloud_density : hint_range(0.0, 1.0) = 0.5;
 uniform float time_scale : hint_range(0.0, 1.0) = 0.1;
 uniform float edge_softness : hint_range(0.0, 1.0) = 0.1;
+uniform float emission_strength : hint_range(0.0, 16.0) = 8.0; // Added emission strength uniform
 
 // Noise functions
 float hash(vec3 p) {
@@ -54,5 +55,7 @@ void fragment() {
     // Set the final color and alpha
     ALBEDO = final_color;
     ALPHA = cloud;
-	
+    
+    // Set maximum emission
+    EMISSION = vec3(1,0,0);
 }

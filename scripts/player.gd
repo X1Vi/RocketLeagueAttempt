@@ -7,7 +7,7 @@ extends CharacterBody3D
 @export var steering_sensitivity = 0.5
 @export var steering_speed = 5.0
 @export var steering_friction = 2.0
-@export var gravity = -9.8
+@export var gravity = -20
 @export var drift_factor = 0.95
 @export var handbrake_drift_factor = 0.7
 @export var traction_fast = 0.1
@@ -15,6 +15,10 @@ extends CharacterBody3D
 @export var reverse_friction_deceleration = 15.0  # Added reverse friction deceleration
 
 @export var camera_rotation_speed = 0.1  # Speed at which the camera follows the car
+
+@export var timer: Timer 
+
+var canBoost: bool = true
 
 var speed = 0.0
 var steer_angle = 0.0
@@ -25,7 +29,10 @@ var mouse_sensitivity = 0.003  # Sensitivity for mouse movement
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
+
+
 func _physics_process(delta):
+	boost()
 	quit()
 	apply_gravity()
 	movement(delta)
@@ -81,7 +88,7 @@ func apply_gravity():
 	if not is_on_floor():
 		velocity.y += gravity * get_physics_process_delta_time()
 	else:
-		velocity.y = 0
+		velocity.y += gravity * get_physics_process_delta_time()
 
 func rotate_camera(mouse_delta):
 	if camera != null:
@@ -99,3 +106,22 @@ func rotate_camera(mouse_delta):
 func quit():
 	if Input.is_action_just_pressed('Quit'):
 		get_tree().quit()
+
+func boost():
+	if Input.is_action_just_pressed('Spacebar'):
+		canBoost = false
+		print("boost activated")
+		gravity = abs(gravity)   
+		speed = speed * 2
+		max_speed = 80
+		timer.start()
+		
+		
+
+
+func _on_timer_timeout():
+	canBoost = true
+	gravity = -gravity 
+	speed = speed / 2
+	max_speed = 100
+	print("timer deactivated")

@@ -37,6 +37,5 @@ near = 0.1
 far = 3999.1
 
 [node name="Timer" type="Timer" parent="."]
-one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
