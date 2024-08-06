@@ -35,9 +35,9 @@ func _input(event):
 		rotate_camera(event.relative)
 
 func movement(delta):
-	var throttle = Input.get_action_strength("ui_up") - Input.get_action_strength("ui_down")
-	var steer_input = Input.get_action_strength("ui_left") - Input.get_action_strength("ui_right")
-	var handbrake = Input.is_action_pressed("ui_down")  # Assuming you've defined a handbrake action
+	var throttle = Input.get_action_strength("W") - Input.get_action_strength("S")
+	var steer_input = Input.get_action_strength("A") - Input.get_action_strength("D")
+	var handbrake = Input.is_action_pressed("S")  # Assuming you've defined a handbrake action
 	
 	# Apply acceleration and deceleration
 	if throttle > 0:
